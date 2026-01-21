@@ -1,73 +1,127 @@
-# React + TypeScript + Vite
+# Contract Management Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+#
+---
 
-Currently, two official plugins are available:
+## 📌 Overview
+The **Contract Management Platform** is a frontend-only application built from scratch as part of an assignment to demonstrate **product thinking, UI design, state management, and clean code architecture**.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+No backend or UI designs were provided. All architecture, UI flow, and state handling were independently designed and implemented.
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🎯 Assignment Objective
+Build a frontend-based Contract Management Platform that demonstrates:
+- Product thinking
+- UI/UX clarity
+- Controlled state management
+- Clean, scalable architecture
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🛠 Tech Stack
+- **React** – Component-based UI
+- **TypeScript** – Type safety & maintainability
+- **Vite** – Fast dev server & optimized builds
+- **React Router** – Client-side routing
+- **Tailwind CSS** – Utility-first styling
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+**Why this stack?**  
+This stack ensures fast development, predictable state handling, and a clean separation of concerns without unnecessary complexity.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Design Decisions
+- Clear separation between UI, state, and logic
+- Centralized contract & blueprint state using Zustand
+- Strong TypeScript typing for core entities
+- Modular and reusable components
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## ⚙️ Functional Features
+
+### 1️⃣ Blueprint Creation
+- Create reusable contract blueprints
+- Supported field types:
+  - Text
+  - Date
+  - Signature
+  - Checkbox
+- Basic positioning of fields
+- Stored metadata:
+  - Field type
+  - Label
+  - Position
+
+📸 **Screenshot – Blueprints Page**
+![Blueprints Page](./src/assets/Screenshot%202026-01-21%20140929.png)
+
+---
+
+### 2️⃣ Contract Creation from Blueprint
+- Select an existing blueprint
+- Generate a contract from it
+- All fields are inherited from the blueprint
+- Users can fill values for each field
+
+📸 **Screenshot – Contract Creation Page**
+![Contract Page](./src/assets/Screenshot%202026-01-21%20141916.png)
+
+---
+
+### 3️⃣ Contract Lifecycle Management
+Each contract follows a strict lifecycle:
+
+
+Rules enforced:
+- No skipping lifecycle steps
+- UI shows current status clearly
+- Only valid actions are enabled
+- Locked contracts are read-only
+- Revoked contracts cannot continue
+
+---
+
+### 4️⃣ Contract Dashboard
+- Table view of all contracts
+- Displays:
+  - Contract name
+  - Blueprint name
+  - Status
+  - Created date
+  - Action buttons
+- Filter by:
+  - Active
+  - Pending
+  - Signed
+
+📸 **Screenshot – Dashboard**
+![Dashboard](./src/assets/Screenshot%202026-01-21%20141949.png)
+
+---
+
+## 🎨 UI Guidelines
+- No external UI templates used
+- Focus on:
+  - Clarity
+  - Logical flow
+  - Usability
+- Visual polish kept secondary to structure and UX
+
+---
+
+## 🚀 Setup Instructions
+
+### Prerequisites
+- Node.js 
+- npm
+
+### Installation
+```bash
+git clone https://github.com/VaishnaviBhawar/Contract-Manager.git
+cd Contract-Manager
+npm install
+
+
